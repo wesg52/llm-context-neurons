@@ -100,15 +100,16 @@ if __name__ == '__main__':
     parser.add_argument(
         '--output_dir', default='cached_activations')
     parser.add_argument(
-        '--batch_size', default=64, type=int,
+        '--batch_size', default=32, type=int,
     )
 
     args = parser.parse_args()
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = HookedTransformer.from_pretrained(args.model)
+    model = HookedTransformer.from_pretrained(args.model, device='cpu')
     model.to(device)
     model.eval()
+    torch.set_grad_enabled(False)
 
     tokenized_dataset = datasets.load_from_disk(
         os.path.join('data', args.feature_dataset))
