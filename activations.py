@@ -10,6 +10,7 @@ from transformer_lens import HookedTransformer
 
 
 def quantize_neurons(activation_tensor, output_precision=8):
+    activation_tensor = activation_tensor.to(torch.float32)
     min_vals = activation_tensor.min(dim=0)[0]
     max_vals = activation_tensor.max(dim=0)[0]
     num_quant_levels = 2**output_precision
