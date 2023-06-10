@@ -1,0 +1,17 @@
+torch
+torchtext
+transformer-lens==1.2.2
+numpy
+pandas
+tqdm
+matplotlib
+scikit-learn
+scipy
+plotly
+ipython
+jupyter
+pylint
+autopep8
+seaborn
+notebook
+circuitsvis
