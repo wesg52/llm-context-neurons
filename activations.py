@@ -92,7 +92,7 @@ if __name__ == '__main__':
         '--feature_dataset',
         help='Name of cached feature dataset')
     parser.add_argument(
-        '--save_location', default='mlp.hook_pre',
+        '--save_location', default='mlp.hook_post',
         help='Model component to probe')
     parser.add_argument(
         '--activation_aggregation', default='mean',
