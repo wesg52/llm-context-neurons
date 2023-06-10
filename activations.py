@@ -73,7 +73,7 @@ def get_activations(args, model, dataset, device):
         args.model,
         args.feature_dataset
     )
-    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(save_path, exist_ok=True)
     agg = 'none' if args.activation_aggregation is None else args.activation_aggregation
     for layer_ix, activations in layer_activations.items():
         torch.save(
