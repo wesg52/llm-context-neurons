@@ -23,9 +23,13 @@ source $ORDINAL_PROBING_ROOT/ord/bin/activate
 
 PYTHIA_MODELS=('pythia-70m' 'pythia-160m' 'pythia-410m' 'pythia-1b' 'pythia-1.4b' 'pythia-2.8b' 'pythia-6.9b')
 
-for model in "${PYTHIA_MODELS[@]}"
-do
-    python activations.py --model $model --feature_dataset pile_data_source
+# for model in "${PYTHIA_MODELS[@]}"
+# do
+#     python activations.py --model $model --feature_dataset pile_data_source
 
-    python activations.py --model $model --feature_dataset europarl_lang
-done
+#     python activations.py --model $model --feature_dataset europarl_lang
+# done
+
+python activations.py --model pythia-6.9b --feature_dataset pile_data_source --batch_size 16
+
+python activations.py --model pythia-6.9b --feature_dataset europarl_lang --batch_size 16
